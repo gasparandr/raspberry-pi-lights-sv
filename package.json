@@ -1,0 +1,26 @@
+{
+  "name": "raspberry-pi-lights-server",
+  "description": "Node server for Raspberry PI - home automation, managing lights",
+  "repository": "https://github.com/gasparandr/raspberry-pi-lights-sv.git",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "tsc && node ./build/index.js",
+    "ts": "tsc -w",
+    "server": "nodemon ./build/index.js"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^6.1.0",
+    "@types/ejs": "^2.6.0",
+    "@types/express": "^4.16.0",
+    "@types/moment": "^2.13.0",
+    "@types/node": "^10.11.4",
+    "typescript": "^3.1.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.1.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "moment": "^2.22.2"
+  }
+}
