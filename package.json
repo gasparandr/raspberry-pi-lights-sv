@@ -4,9 +4,9 @@
   "repository": "https://github.com/gasparandr/raspberry-pi-lights-sv.git",
   "version": "0.0.1",
   "scripts": {
-    "start": "tsc && node ./build/index.js",
+    "start": "tsc && node ./build/Index.js",
     "ts": "tsc -w",
-    "server": "nodemon ./build/index.js"
+    "server": "nodemon ./build/Index.js"
   },
   "devDependencies": {
     "@types/dotenv": "^6.1.0",
