@@ -1,11 +1,14 @@
 
 
+
 require( "dotenv" ).config();
 
 
 import * as bodyParser from "body-parser";
 import * as express from "express";
 import * as ejs from "ejs";
+
+import HomeController from "./controllers/HomeController";
 
 
 const publicPath = __dirname.substr( 0, __dirname.indexOf( "build" ) ) + "public";
@@ -41,10 +44,8 @@ class Server {
 
 
     public routes() {
-        let router: express.Router;
-        router = express.Router();
 
-        this.app.use( '/', router );
+        this.app.use( '/', HomeController );
 
 
     }
