@@ -8,9 +8,11 @@ require( "dotenv" ).config();
 
 import * as bodyParser from "body-parser";
 import * as express from "express";
+import * as cors from "cors";
 import * as ejs from "ejs";
 
 import HomeController from "./controllers/HomeController";
+import InputController from "./controllers/InputController";
 
 
 const publicPath = __dirname.substr( 0, __dirname.indexOf( "build" ) ) + "public";
@@ -39,6 +41,7 @@ class Server {
 
         this.app.use( bodyParser.urlencoded( { extended: true } ) );
         this.app.use( bodyParser.json() );
+        this.app.use( cors() );
 
 
     }
@@ -48,6 +51,7 @@ class Server {
     public routes() {
 
         this.app.use( '/', HomeController );
+        this.app.use( "/input", InputController );
         this.app.use( "/auth", AuthenticationController );
 
 
