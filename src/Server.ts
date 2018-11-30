@@ -1,6 +1,8 @@
 
 
 
+import AuthenticationController from "./controllers/AuthenticationController";
+
 require( "dotenv" ).config();
 
 
@@ -46,6 +48,7 @@ class Server {
     public routes() {
 
         this.app.use( '/', HomeController );
+        this.app.use( "/auth", AuthenticationController );
 
 
     }
