@@ -31,6 +31,12 @@ class HomeController {
         console.log( "Sent User: " + req.body.username );
         console.log( "Sent Password: " + req.body.password );
 
+        if ( process.env.SYSTEM_USER === req.body.username && process.env.SYSTEM_PASSWORD === req.body.password ) {
+            res.send( { success: true, message: "Authentication successful." } );
+        } else {
+            res.send( { success: false, message: "Authentication failed, username or password incorrect." } );
+        }
+
     }
 
 }
