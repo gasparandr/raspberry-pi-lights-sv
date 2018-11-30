@@ -1,9 +1,12 @@
 
 
 
+import DataHelper from "./helpers/DataHelper";
+
 require( "dotenv" ).config();
 
 
+import * as mongoose from "mongoose";
 import * as bodyParser from "body-parser";
 import * as express from "express";
 import * as ejs from "ejs";
@@ -29,6 +32,11 @@ class Server {
 
     public config() {
 
+        const MONGO_URI = "mongodb://localhost/szilveszter-lights-app-test";
+
+        mongoose.set( "useCreateIndex", true );
+        mongoose.connect( MONGO_URI || process.env.MONGODB_URI, { useNewUrlParser: true } );
+
 
         this.app.set( "view engine", "ejs" );
 
@@ -47,6 +55,7 @@ class Server {
 
         this.app.use( '/', HomeController );
 
+        this.app.use( "/data", DataHelper );
 
     }
 
