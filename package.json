@@ -9,23 +9,37 @@
     "server": "nodemon ./build/Index.js"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/bcrypt-nodejs": "0.0.30",
     "@types/cors": "^2.8.4",
     "@types/dotenv": "^6.1.0",
     "@types/ejs": "^2.6.0",
     "@types/express": "^4.16.0",
+    "@types/express-session": "^1.15.11",
     "@types/moment": "^2.13.0",
     "@types/mongoose": "^5.3.2",
     "@types/node": "^10.11.4",
+    "@types/passport": "^0.4.7",
+    "@types/passport-local": "^1.0.33",
+    "@types/session-file-store": "^1.2.0",
+    "@types/uuid": "^3.4.4",
     "typescript": "^3.1.1"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "dotenv": "^6.1.0",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "express-session": "^1.15.6",
     "moment": "^2.22.2",
     "mongoose": "^5.3.14",
-    "rpi-gpio": "^2.1.2"
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "rpi-gpio": "^2.1.2",
+    "session-file-store": "^1.2.0",
+    "uuid": "^3.3.2"
   }
 }

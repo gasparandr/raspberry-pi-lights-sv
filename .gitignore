@@ -1,5 +1,7 @@
 # Add any directories, files, or patterns you don't want to be tracked by version control
 build/
 node_modules/
+db/node_modules/
 .idea/
 .env
+sessions/

@@ -1,10 +1,14 @@
 
 
 import { Router, Request, Response, NextFunction } from "express";
+import * as passport from "passport";
+import { Strategy } from "passport-local";
+import axios from "axios";
+import * as bcrypt from "bcrypt-nodejs"
 
 
 
-class HomeController {
+class AuthenticationController {
 
     router: Router;
 
@@ -17,6 +21,28 @@ class HomeController {
 
 
 
+    public initialize() {
+        passport.use( this.getStrategy() );
+
+        passport.serializeUser( (user, done) => {
+            console.log( `Inside serializeUser callback, User id is saved to the session file store here` );
+            done( null, ( user as any ).id );
+        });
+
+
+        passport.deserializeUser((id, done) => {
+            axios.get(`http://localhost:5000/users/${ id }`)
+                .then(res => done( null, res.data ) )
+                .catch(error => done( error, false ) );
+        });
+
+
+        return passport.initialize();
+    }
+
+
+
+
     public routes() {
         this.router.post( "/login", this.login );
     }
@@ -25,21 +51,52 @@ class HomeController {
 
     public login(req: Request, res: Response, next: NextFunction) {
 
-        console.log( "System User: " + process.env.SYSTEM_USER );
-        console.log( "System Password: " + process.env.SYSTEM_PASSWORD );
-        console.log( "================================" );
-        console.log( "Sent User: " + req.body.username );
-        console.log( "Sent Password: " + req.body.password );
+        console.log( `Inside POST /login callback function` );
 
-        if ( process.env.SYSTEM_USER === req.body.username && process.env.SYSTEM_PASSWORD === req.body.password ) {
-            res.send( { success: true, message: "Authentication successful." } );
-        } else {
-            res.send( { success: false, message: "Authentication failed, username or password incorrect." } );
-        }
+        console.log( `REQUEST` );
+        console.log( req.body );
 
+
+        passport.authenticate( "local", (err, user, info) => {
+            if ( info ) return res.send( info.message );
+            if ( err ) return next( err );
+            if ( ! user ) return res.redirect( "/login" );
+
+            ( req as any ).login(user, (err) => {
+                if ( err ) return next( err );
+
+                return res.redirect( "../../input" );
+            })
+        })( req, res, next );
+
+    }
+
+
+    private getStrategy(): Strategy {
+        return new Strategy(
+            { usernameField: "email" },
+            ( email, password, done ) => {
+                axios.get( `http://localhost:5000/users?email=${ email }` )
+                    .then( res => {
+                        const user = res.data[0];
+
+                        if ( ! user ) {
+                            return done( null, false, { message: "Invalid Credentials.\n" } );
+                        }
+
+                        if ( ! bcrypt.compareSync( password, user.password ) ) {
+                            return done( null, false, { message: "Invalid Credentials.\n" } );
+                        }
+
+                        return done( null, user );
+
+                    })
+                    .catch( error => done( error ) );
+            }
+        )
     }
 
 }
 
 
-export default new HomeController().router;
+export default new AuthenticationController();

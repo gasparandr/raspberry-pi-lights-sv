@@ -17,7 +17,20 @@ class InputController {
 
 
     public routes() {
+        this.router.get( '/', this.input );
         this.router.post( "/data", this.data );
+    }
+
+
+
+    public input(req: Request, res: Response, next: NextFunction) {
+
+        if ( ( req as any ).isAuthenticated() ) {
+            res.render( "input" );
+        } else {
+            res.redirect( '/' );
+        }
+
     }
 
 
