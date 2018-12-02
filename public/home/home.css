@@ -52,3 +52,12 @@ input {
     text-indent: 0;
     cursor: pointer;
 }
+
+
+@media screen and ( max-width: 480px ) {
+
+    form {
+        width: 90%;
+        height: 90%;
+    }
+}

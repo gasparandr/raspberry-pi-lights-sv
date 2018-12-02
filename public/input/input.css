@@ -80,4 +80,11 @@ button {
 }
 
 
+@media screen and ( max-width: 480px ) {
+
+    #input-screen-container {
+        width: 95%;
+        height: 580px;
+    }
+}
 
