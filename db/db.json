@@ -2,12 +2,12 @@
   "users": [
     {
       "id":"2f24vvg",
-      "email": "szilveszter",
+      "username": "szilveszter",
       "password": "$2a$10$sxZg75WI5cqWToaIzk4Kz.nMFdhXNKF/PpbG3lyIIuMbQa6jBiSnW"
     },
     {
       "id":"d1u9nq",
-      "email": "user2@example.com",
+      "username": "user2@example.com",
       "password": "$2a$10$VXPvl4tfHVBCrz/UGV7wweVOd4pF0w1iSx0z0NbOacaN5Kl64TDQS"
     }
   ]

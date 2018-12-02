@@ -1,4 +1,83 @@
 
 body {
-    background-color: green;
+    background-color: #F2F6FF;
 }
+
+
+#input-screen-container {
+    background-color: #FFFFFF;
+    width: 380px;
+    height: 650px;
+    margin: 25px auto;
+    border-radius: 10px;
+    box-shadow: -1px 9px 35px 0 rgb(188, 194, 232);
+    position: relative;
+}
+
+
+button {
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 7px;
+    box-shadow: -1px 3px 10px 0 rgb(188, 194, 232);
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+
+.button-container {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #F2F6FF;
+    margin: auto;
+    position: absolute;
+    bottom: 30px;
+    left: calc(50% - 65px);
+    z-index: 100;
+}
+
+
+#range-input-container {
+    width: 120px;
+    height: 100px;
+    margin: auto;
+    position: absolute;
+    bottom: 140px;
+    left: calc( 50% - 150px);
+}
+
+
+/*SLIDER*/
+
+
+.rs-border {
+    border: none;
+}
+
+
+.rs-range-color {
+    background-color: #F2F6FF;
+}
+
+
+.rs-path-color {
+    background-color: #F2F6FF;
+}
+
+
+.rs-handle {
+    background-color: #6A83D4;
+    box-shadow: 3px 1px 10px 0 rgb(188, 194, 232);
+}
+
+
+

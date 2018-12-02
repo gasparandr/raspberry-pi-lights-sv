@@ -74,9 +74,9 @@ class AuthenticationController {
 
     private getStrategy(): Strategy {
         return new Strategy(
-            { usernameField: "email" },
-            ( email, password, done ) => {
-                axios.get( `http://localhost:5000/users?email=${ email }` )
+            { usernameField: "username" },
+            ( username, password, done ) => {
+                axios.get( `http://localhost:5000/users?username=${ username }` )
                     .then( res => {
                         const user = res.data[0];
 
