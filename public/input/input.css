@@ -80,6 +80,32 @@ button {
 }
 
 
+/* OFF */
+
+.hide {
+    display: none;
+}
+
+
+#input-screen-container.background-off {
+    background-color: #283766;
+}
+
+
+.button-off {
+    background-color: #1D2B57;
+    color: #6A83D4;
+    box-shadow: -1px 3px 10px 0 rgb(29, 43, 87);
+}
+
+
+.off {
+    background-color: #2D3D6E;
+}
+
+
+
+
 @media screen and ( max-width: 480px ) {
 
     #input-screen-container {
