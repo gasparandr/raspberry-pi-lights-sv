@@ -30,14 +30,15 @@ body {
 
 
 button {
-    width: 115px;
-    height: 115px;
+
+    width: 116px;
+    height: 116px;
     border-radius: 50%;
     border: none;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
-    margin: 7px;
-    box-shadow: -1px 3px 10px 0 rgb(188, 194, 232);
+    margin: 11px;
+    box-shadow: 0 2px 12px 0 rgba(18,30,69,0.2);
     background-color: white;
     cursor: pointer;
     outline: none;
@@ -45,16 +46,16 @@ button {
 
 
 .button-container {
-    width: 130px;
-    height: 130px;
+    height: 138px;
+    width: 138px;
     border-radius: 50%;
     border: none;
     font-size: 15px;
     font-weight: bold;
-    background-color: #F2F6FF;
+    background-color: #EEF1F9;
     margin: auto;
     position: absolute;
-    bottom: 30px;
+    bottom: 45px;
     left: calc(50% - 65px);
     z-index: 100;
 }
@@ -65,9 +66,25 @@ button {
     height: 100px;
     margin: auto;
     position: absolute;
-    bottom: 140px;
+    bottom: 155px;
     left: calc( 50% - 150px);
 }
+
+
+#on-icon {
+    position: absolute;
+    bottom: 55px;
+    right: 25px;
+}
+
+
+#off-icon {
+    position: absolute;
+    bottom: 55px;
+    left: 31px;
+}
+
+
 
 
 /*SLIDER*/

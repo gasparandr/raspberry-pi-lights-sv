@@ -2,8 +2,8 @@
 
 $("#range-input").roundSlider({
     radius: 150,
-    width: 4,
-    handleSize: "+25",
+    width: 5,
+    handleSize: "+31",
     circleShape: "half-top",
     sliderType: "min-range",
     showTooltip: false,
@@ -16,7 +16,8 @@ var btnContainer    = document.getElementById( "button-container" );
 var rangeContainer  = document.getElementById( "range-input-container" );
 var switchButton    = document.getElementById( "switch-btn" );
 var background      = document.getElementById( "background" );
-
+var onIcon          = document.getElementById( "on-icon" );
+var offIcon         = document.getElementById( "off-icon" );
 
 var animation;
 
@@ -24,6 +25,9 @@ var animation;
 switchButton.addEventListener( "click", function () {
 
     if ( switchButton.classList.contains( "button-off" ) ) {
+
+        onIcon.classList.remove( "hide" );
+        offIcon.classList.remove( "hide" );
 
         rangeContainer.classList.remove( "hide" );
         container.classList.remove( "background-off" );
@@ -41,6 +45,9 @@ switchButton.addEventListener( "click", function () {
 
 
     } else {
+
+        onIcon.classList.add( "hide" );
+        offIcon.classList.add( "hide" );
 
         rangeContainer.classList.add( "hide" );
         container.classList.add( "background-off" );
